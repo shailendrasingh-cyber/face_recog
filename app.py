@@ -4,7 +4,6 @@ import os
 import numpy as np
 
 def load_and_encode_images(images_path):
-    """Loads images from the given path and encodes known faces."""
     known_encodings = []
     known_names = []
     
@@ -27,7 +26,6 @@ def load_and_encode_images(images_path):
     return known_encodings, known_names
 
 def recognize_faces(known_encodings, known_names):
-    """Captures video and recognizes faces in real time."""
     video_capture = cv2.VideoCapture(0) 
     
     if not video_capture.isOpened():
@@ -71,7 +69,7 @@ def recognize_faces(known_encodings, known_names):
     cv2.destroyAllWindows()
 
 if __name__ == "__main__":
-    images_path = "images"  # Path to the folder containing images
+    images_path = "images"  
     known_encodings, known_names = load_and_encode_images(images_path)
     print(f"Loaded encodings for {len(known_names)} people.")
     if known_encodings:
